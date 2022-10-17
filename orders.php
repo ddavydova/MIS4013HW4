@@ -132,7 +132,7 @@ $conn->close();
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="ordersname" class="form-label">Name</label>
+                  <label for="ordersname" class="form-label">Order</label>
                   <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
                   <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
                 </div>
