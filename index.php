@@ -56,7 +56,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </tr>
         </thead>
         <tbody>
-         
+          
+<?php
+$sql = "SELECT customer_id, fname from Customer";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+?>
+          
           <tr>
             <td><?=$row["customer_id"]?></td>
             <td><a href="customer-orders.php?id=<?=$row["customer_id"]?>"><?=$row["fname"]?></a></td>
@@ -95,16 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               </form>
             </td>
           </tr>
-          
-<?php
-$sql = "SELECT customer_id, fname from Customer";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-?>
-          
           
 <?php
   }
