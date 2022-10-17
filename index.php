@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["customer_id"]?></td>
-            <td><a href="customer-orders.php?id=<?=$row["customer_id"]?>"><?=$row["fname"]?></a></td>
+            // <td><a href="customer-orders.php?id=<?=$row["customer_id"]?>"><?=$row["fname"]?></a></td>
             <td>
               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editCustomer<?=$row["customer_id"]?>">
                 Edit
@@ -95,7 +95,7 @@ if ($result->num_rows > 0) {
                   </div>
                 </div>
               </div>
-            </td>
+           // </td>
             <td>
               <form method="post" action="">
                 <input type="hidden" name="iid" value="<?=$row["customer_id"]?>" />
