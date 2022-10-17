@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo '<div class="alert alert-success" role="alert">New supplier name added.</div>';
       break;
     case 'Edit':
-      $sqlEdit = "update Product set sname=? where supplier_id=?";
+      $sqlEdit = "update Supplier set sname=? where supplier_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
       $stmtEdit->bind_param("si", $_POST['iName'], $_POST['iid']);
       $stmtEdit->execute();
@@ -70,22 +70,22 @@ if ($result->num_rows > 0) {
             <td><?=$row["supplier_id"]?></td>
             <td><a href="customer-orders.php?id=<?=$row["supplier_id"]?>"><?=$row["sname"]?></a></td>
             <td>
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editProduct<?=$row["supplier_id"]?>">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editSupplier<?=$row["supplier_id"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editProduct<?=$row["supplier_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editProduct<?=$row["supplier_id"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editSupplier<?=$row["supplier_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editProduct<?=$row["supplier_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editProduct<?=$row["supplier_id"]?>Label">Edit Supplier</h1>
+                      <h1 class="modal-title fs-5" id="editSupplier<?=$row["supplier_id"]?>Label">Edit Supplier</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editProduct<?=$row["supplier_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editProduct<?=$row["supplier_id"]?>Name" aria-describedby="editProduct<?=$row["supplier_id"]?>Help" name="iName" value="<?=$row['sname']?>">
-                          <div id="editProduct<?=$row["supplier_id"]?>Help" class="form-text">Enter the supplier name.</div>
+                          <label for="editSupplier<?=$row["supplier_id"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editSupplier<?=$row["supplier_id"]?>Name" aria-describedby="editSupplier<?=$row["supplier_id"]?>Help" name="iName" value="<?=$row['sname']?>">
+                          <div id="editSupplier<?=$row["supplier_id"]?>Help" class="form-text">Enter the supplier name.</div>
                         </div>
                         <input type="hidden" name="iid" value="<?=$row['supplier_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
@@ -132,9 +132,9 @@ $conn->close();
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="pname" class="form-label">Product</label>
+                  <label for="pname" class="form-label">Supplier</label>
                   <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the product's name.</div>
+                  <div id="nameHelp" class="form-text">Enter the supplier's name.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
