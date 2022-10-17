@@ -98,7 +98,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="iid" value="<?=$row["customer_id"]?>" />
+                <input type="hidden" name="iid" value="<?=$row["order_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
@@ -122,19 +122,19 @@ $conn->close();
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="addCustomer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addCustomerLabel" aria-hidden="true">
+      <div class="modal fade" id="addOrders" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOrdersLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addCustomerLabel">Add Customer</h1>
+              <h1 class="modal-title fs-5" id="addOrdersLabel">Add Customer</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="customername" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="customerName" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the customer's name.</div>
+                  <label for="ordersname" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
+                  <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
