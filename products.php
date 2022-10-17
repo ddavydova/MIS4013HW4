@@ -84,7 +84,7 @@ if ($result->num_rows > 0) {
                       <form method="post" action="">
                         <div class="mb-3">
                           <label for="editProduct<?=$row["product_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editProduct<?=$row["product_id"]?>Name" aria-describedby="editProduct<?=$row["product_id"]?>Help" name="iName" value="<?=$row['quantity']?>">
+                          <input type="text" class="form-control" id="editProduct<?=$row["product_id"]?>Name" aria-describedby="editProduct<?=$row["product_id"]?>Help" name="iName" value="<?=$row['pname']?>">
                           <div id="editProduct<?=$row["product_id"]?>Help" class="form-text">Enter the product name.</div>
                         </div>
                         <input type="hidden" name="iid" value="<?=$row['product_id']?>">
