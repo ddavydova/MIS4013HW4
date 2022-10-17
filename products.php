@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Quantity</th>
+            <th>Product Name</th>
             <th></th>
             <th></th>
           </tr>
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <tbody>
           
 <?php
-$sql = "SELECT order_id, quantity from Orders";
+$sql = "SELECT product_id, pname from Product";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -67,27 +67,27 @@ if ($result->num_rows > 0) {
 ?>
           
           <tr>
-            <td><?=$row["order_id"]?></td>
-            <td><a href="customer-orders.php?id=<?=$row["order_id"]?>"><?=$row["quantity"]?></a></td>
+            <td><?=$row["product_id"]?></td>
+            <td><a href="customer-orders.php?id=<?=$row["product_id"]?>"><?=$row["pname"]?></a></td>
             <td>
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editOrders<?=$row["order_id"]?>">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editProduct<?=$row["order_id"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editOrders<?=$row["order_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editOrders<?=$row["order_id"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editProduct<?=$row["product_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editProduct<?=$row["product_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editOrders<?=$row["order_id"]?>Label">Edit Order</h1>
+                      <h1 class="modal-title fs-5" id="editProduct<?=$row["product_id"]?>Label">Edit Product</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editOrders<?=$row["order_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editOrders<?=$row["order_id"]?>Name" aria-describedby="editOrders<?=$row["order_id"]?>Help" name="iName" value="<?=$row['quantity']?>">
-                          <div id="editOrders<?=$row["order_id"]?>Help" class="form-text">Enter the quantity.</div>
+                          <label for="editProduct<?=$row["product_id"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editProduct<?=$row["product_id"]?>Name" aria-describedby="editProduct<?=$row["product_id"]?>Help" name="iName" value="<?=$row['quantity']?>">
+                          <div id="editProduct<?=$row["product_id"]?>Help" class="form-text">Enter the product name.</div>
                         </div>
-                        <input type="hidden" name="iid" value="<?=$row['order_id']?>">
+                        <input type="hidden" name="iid" value="<?=$row['product_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                       </form>
@@ -98,7 +98,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="iid" value="<?=$row["order_id"]?>" />
+                <input type="hidden" name="iid" value="<?=$row["product_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
@@ -122,19 +122,19 @@ $conn->close();
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="addOrders" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOrdersLabel" aria-hidden="true">
+      <div class="modal fade" id="addProduct" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addOrdersLabel">Add Order</h1>
+              <h1 class="modal-title fs-5" id="addProductLabel">Add Order</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="ordersname" class="form-label">Order</label>
-                  <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
+                  <label for="pname" class="form-label">Product</label>
+                  <input type="text" class="form-control" id="pname" aria-describedby="nameHelp" name="iName">
+                  <div id="nameHelp" class="form-text">Enter the product's name.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
