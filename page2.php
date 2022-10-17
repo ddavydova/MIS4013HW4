@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Instructors</title>
+    <title>Customers</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   </head>
   <body>
@@ -71,26 +71,26 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["customer_id"]?></td>
-            <td><a href="instructor-section.php?id=<?=$row["instructor_id"]?>"><?=$row["instructor_name"]?></a></td>
+            <td><a href="customer-orders.php?id=<?=$row["customer_id"]?>"><?=$row["fname"]?></a></td>
             <td>
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editInstructor<?=$row["instructor_id"]?>">
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editCustomer<?=$row["customer_id"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editInstructor<?=$row["instructor_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editInstructor<?=$row["instructor_id"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editCustomer<?=$row["customer_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editInstructor<?=$row["customer_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editInstructor<?=$row["instructor_id"]?>Label">Edit Instructor</h1>
+                      <h1 class="modal-title fs-5" id="editCustomer<?=$row["customer_id"]?>Label">Edit Customer</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editInstructor<?=$row["instructor_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editInstructor<?=$row["instructor_id"]?>Name" aria-describedby="editInstructor<?=$row["instructor_id"]?>Help" name="iName" value="<?=$row['instructor_name']?>">
-                          <div id="editInstructor<?=$row["instructor_id"]?>Help" class="form-text">Enter the instructor's name.</div>
+                          <label for="editCustomer<?=$row["customer_id"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editCustomer<?=$row["customer_id"]?>Name" aria-describedby="editCustomer<?=$row["customer_id"]?>Help" name="iName" value="<?=$row['fname']?>">
+                          <div id="editCustomer<?=$row["customer_id"]?>Help" class="form-text">Enter the customer's first name.</div>
                         </div>
-                        <input type="hidden" name="iid" value="<?=$row['instructor_id']?>">
+                        <input type="hidden" name="iid" value="<?=$row['customer_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                       </form>
@@ -101,7 +101,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
+                <input type="hidden" name="iid" value="<?=$row["customer_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
@@ -120,24 +120,24 @@ $conn->close();
       </table>
       <br />
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCustomer">
         Add New
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="addInstructor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addInstructorLabel" aria-hidden="true">
+      <div class="modal fade" id="addInstructor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addCustomerLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addInstructorLabel">Add Instructor</h1>
+              <h1 class="modal-title fs-5" id="addCustomerLabel">Add Customer</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="instructorName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="instructorName" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the instructor's name.</div>
+                  <label for="customername" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="customerName" aria-describedby="nameHelp" name="iName">
+                  <div id="nameHelp" class="form-text">Enter the customer's name.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
