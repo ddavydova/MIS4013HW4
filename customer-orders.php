@@ -11,20 +11,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>ID</th>
-      <th>Prefix</th>
-      <th>Number</th>
-      <th>Section</th>
-      <th>Instructor</th>
+      <th>Order ID</th>
+      <th>Product ID</th>
+      <th>Quantity</th>
+      <th>Supplier ID</th>
+      <th>Product Name</th>
     </tr>
   </thead>
   <tbody>
     <?php
 $servername = "localhost";
-$username = "davyddov_davy";
-$password = "Dasha12345!";
-$dbname = "davyddov_HW4";
-
+$username = "davyddov_davyddova";
+$password = "dasha12345!";
+$dbname = "davyddov_HW3";
+    
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
