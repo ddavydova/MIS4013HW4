@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
-      $sqlAdd = "insert into Customer (fname) value (?)";
+      $sqlAdd = "insert into Customer (fname) value ('$custName')";
       $stmtAdd = $conn->prepare($sqlAdd);
       $stmtAdd->bind_param("s", $_POST['custName']);
       $stmtAdd->execute();
@@ -143,23 +143,6 @@ $conn->close();
         </div>
       </div>
     </div>
-   
-
-	<center>
-		<h1>Storing Form data in Database</h1>
-		<form action="insert.php" method="post">
-			
-<p>
-			<label for="fname"> Name:</label>
-			<input type="text" name="fname" id="fname">
-			</p>
-			
-
-			<input type="submit" value="Submit">
-		</form>
-	</center>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <?php include("footer.php");?>
   </body>
