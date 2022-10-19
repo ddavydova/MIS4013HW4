@@ -28,7 +28,7 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 		
 		// Performing insert query execution
 		// here our table name is college
-		$sql = "INSERT INTO college VALUES ('$fname')";
+		$sql = "INSERT INTO Customer VALUES ('$fname')";
 		
 		if(mysqli_query($conn, $sql)){
 			echo "<h3>data stored in a database successfully."
