@@ -10,7 +10,16 @@
 ?>
 
 
+______
+line 23
 
+  case 'Add':
+      $sqlAdd = "insert into Orders (quantity) value (?)";
+      $stmtAdd = $conn->prepare($sqlAdd);
+      $stmtAdd->bind_param("s", $_POST['iName']);
+      $stmtAdd->execute();
+      echo '<div class="alert alert-success" role="alert">New quantity added.</div>';
+      break;
 ______
 
 line 132
