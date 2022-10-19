@@ -136,6 +136,17 @@ $conn->close();
                   <div id="nameHelp" class="form-text">Enter the customer's name.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
+                 <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
+                  <?php
+                   $instructorSql = "select * from instructor order by instructor_name";
+                   $instructorResult = $conn->query($instructorSql);
+                   while($instructorRow = $instructorResult->fetch_assoc()) {
+                   if ($instructorRow['instructor_id'] == $row['instructor_id']) {
+                   $selText = " selected";
+                   } else {
+                   $selText = "";
+                   }
+                   ?> 
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
