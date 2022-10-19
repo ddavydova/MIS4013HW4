@@ -138,6 +138,9 @@ $conn->close();
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
+             <form method='post' action="">
+              <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
+             </form>
             </div>
           </div>
         </div>
