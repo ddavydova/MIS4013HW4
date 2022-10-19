@@ -37,8 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
      $sql = "SELECT * FROM `Orders`";
-    $all_categories = mysqli_query($con,$sql);
-  
     // The following code checks if the submit button is clicked
     // and inserts the data in the database accordingly
     if(isset($_POST['submit']))
