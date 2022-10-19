@@ -96,19 +96,9 @@ if ($result->num_rows > 0) {
               </div>
             </td>
             <td>
-              <form method="post" action="">
+             <form method="post" action="">
                 <input type="hidden" name="iid" value="<?=$row["customer_id"]?>" />
                <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
-<?php
-    $instructorSql = "select * from instructor order by instructor_name";
-    $instructorResult = $conn->query($instructorSql);
-    while($instructorRow = $instructorResult->fetch_assoc()) {
-      if ($instructorRow['instructor_id'] == $row['instructor_id']) {
-        $selText = " selected";
-      } else {
-        $selText = "";
-      }
-?>
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
