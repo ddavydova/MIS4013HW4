@@ -20,13 +20,6 @@ if ($conn->connect_error) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
-    case 'Add':
-      $sqlAdd = "insert into Orders (quantity) value (?)";
-      $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("s", $_POST['iName']);
-      $stmtAdd->execute();
-      echo '<div class="alert alert-success" role="alert">New quantity added.</div>';
-      break;
     case 'Edit':
       $sqlEdit = "update Orders set quantity=? where order_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
@@ -43,6 +36,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       break;
   }
 }
+     $sql = "SELECT * FROM `Orders`";
+    $all_categories = mysqli_query($con,$sql);
+  
+    // The following code checks if the submit button is clicked
+    // and inserts the data in the database accordingly
+    if(isset($_POST['submit']))
+    {
+        // Store the Product name in a "name" variable
+        $name = mysqli_real_escape_string($con,$_POST['orderquantity']);
+        
+        // Store the Category ID in a "id" variable
+        $id = mysqli_real_escape_string($con,$_POST['Category']);
+        
+        // Creating an insert query using SQL syntax and
+        // storing it in a variable.
+        $sql_insert =
+        "INSERT INTO `Orders`(`quantity`, `customer_id`)
+            VALUES ('$name','$id')";
+          
+          // The following code attempts to execute the SQL query
+          // if the query executes with no errors
+          // a javascript alert message is displayed
+          // which says the data is inserted successfully
+          if(mysqli_query($con,$sql_insert))
+        {
+            echo '<script>alert("Product added successfully")</script>';
+        }
+    }
 ?>
     
       <table class="table table-striped">
