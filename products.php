@@ -68,7 +68,7 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["product_id"]?></td>
-            <td><a href="customer-orders.php?id=<?=$row["product_id"]?>"><?=$row["pname"]?></a></td>
+            <td><?=$row["pname"]?></td>
             <td>
               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editProduct<?=$row["product_id"]?>">
                 Edit
