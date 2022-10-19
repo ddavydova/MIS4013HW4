@@ -42,3 +42,7 @@ line 134
                   <input type="text" class="form-control" id="pname" aria-describedby="nameHelp" name="iName">
                   <div id="nameHelp" class="form-text">Enter the product's name.</div>
                 </div>
+                
+                
+                
+ <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iName"> 
