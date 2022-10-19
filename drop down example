@@ -13,9 +13,13 @@
 
 ______
 
-line 99 
-<form method="post" action="">
-                <input type="hidden" name="iid" value="<?=$row["order_id"]?>" />
-                <input type="hidden" name="saveType" value="Delete">
-                <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
+line 132
+ <form method="post" action="">
+                <div class="mb-3">
+                  <label for="ordersname" class="form-label">Order</label>
+                  <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
+                  <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
+                </div>
+                <input type="hidden" name="saveType" value="Add">
+                <button type="submit" class="btn btn-primary">Submit</button>
               </form>
