@@ -98,7 +98,6 @@ if ($result->num_rows > 0) {
             <td>
              <form method="post" action="">
                 <input type="hidden" name="iid" value="<?=$row["customer_id"]?>" />
-               <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
