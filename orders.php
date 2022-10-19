@@ -45,7 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
     
-      <h1>Orders</h1>
       <table class="table table-striped">
         <thead>
           <tr>
