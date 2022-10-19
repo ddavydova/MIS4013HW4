@@ -131,7 +131,6 @@ $conn->close();
             </div>
             <div class="modal-body">
               <form method="post" action="">
-  
                <div class="mb-3">
                   <label for="pname" class="form-label">Supplier ID</label>
                   <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iName">
@@ -157,8 +156,7 @@ $conn->close();
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <?php include("footer.php");?>
   </body>
