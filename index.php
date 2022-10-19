@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Add':
       $sqlAdd = "insert into Customer (fname) value (?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("s", $_POST['iid']);
+      $stmtAdd->bind_param("s", $_POST['iName']);
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New customer added.</div>';
       break;
@@ -132,7 +132,7 @@ $conn->close();
               <form method="post" action="">
                 <div class="mb-3">
                   <label for="customername" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="customerName" aria-describedby="nameHelp" name="custName">
+                  <input type="text" class="form-control" id="customerName" aria-describedby="nameHelp" name="iName">
                   <div id="nameHelp" class="form-text">Enter the customer's name.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
