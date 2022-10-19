@@ -77,17 +77,6 @@ if ($result->num_rows > 0) {
                   <div class="modal-content">
                     <div class="modal-header">
                       <h1 class="modal-title fs-5" id="editCustomer<?=$row["customer_id"]?>Label">Edit Customer</h1>
-                        <select class="form-select" aria-label="Select Customer" id="customerslist" name="iid">
-                  <?php
-                   $customerSql = "select * from Customer order by fname";
-                   $customerResult = $conn->query($customerSql);
-                   while($customerRow = $customerResult->fetch_assoc()) {
-                   if ($customerRow['customer_id'] == $row['customer_id']) {
-                   $selText = " selected";
-                   } else {
-                   $selText = "";
-                   }
-                   ?> 
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -158,3 +147,4 @@ $conn->close();
     <?php include("footer.php");?>
   </body>
 </html>
+
