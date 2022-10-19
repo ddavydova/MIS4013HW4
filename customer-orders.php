@@ -33,7 +33,7 @@ if ($conn->connect_error) {
 }
 $iid = $_GET['id'];
 //echo $iid;
-$sql = "select o.order_id, c.customer_id, c.fname, c.lname, p.product_id, o.quantity, p.supplier_id, p.name from Customer c join Orders o on c.customer_id = o.customer_id join Product p on o.product_id = p.product_id where c.customer_id=?";
+$sql = "select o.order_id, p.product_id, o.quantity, p.supplier_id, p.pname from Customer c join Orders o on c.customer_id = o.customer_id join Product p on o.product_id = p.product_id where c.customer_id=?";
 //echo $sql;
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $iid);
