@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
-      $sqlAdd = "insert into Customer (fname) value (?)";
+      $sqlAdd = "insert into Customer (fname) value (customerName)";
       $stmtAdd = $conn->prepare($sqlAdd);
       $stmtAdd->bind_param("s", $_POST['iName']);
       $stmtAdd->execute();
