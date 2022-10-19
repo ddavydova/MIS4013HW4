@@ -96,33 +96,11 @@ if ($result->num_rows > 0) {
               </div>
             </td>
             <td>
-              <form method="POST">
-        <label>Quantity for the Order:</label>
-        <input type="text" name="orderquantity" required><br>
-        <label>Select a customer name</label>
-        <select name="Category">
-            <?php
-                // use a while loop to fetch data
-                // from the $all_categories variable
-                // and individually display as an option
-                while ($category = mysqli_fetch_array(
-                        $all_categories,MYSQLI_ASSOC)):;
-            ?>
-                <option value="<?php echo $customer_id["customer_id"];
-                    // The value we usually set is the primary key
-                ?>">
-                    <?php echo $fname["fname"];
-                        // To show the category name to the user
-                    ?>
-                </option>
-            <?php
-                endwhile;
-                // While loop must be terminated
-            ?>
-        </select>
-        <br>
-        <input type="submit" value="submit" name="submit">
-    </form>
+             <form method="post" action="">
+                <input type="hidden" name="iid" value="<?=$row["order_id"]?>" />
+                <input type="hidden" name="saveType" value="Delete">
+                <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
+              </form>
             </td>
           </tr>
           
@@ -151,15 +129,34 @@ $conn->close();
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form method="post" action="">
-                <div class="mb-3">
-                  <label for="ordersname" class="form-label">Order</label>
-                  <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
-                </div>
-                <input type="hidden" name="saveType" value="Add">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+             <form method="POST">
+        <label>Quantity for the Order:</label>
+        <input type="text" name="orderquantity" required><br>
+        <label>Select a customer name</label>
+        <select name="Category">
+            <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($category = mysqli_fetch_array(
+                        $all_categories,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $customer_id["customer_id"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $fname["fname"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+        <input type="submit" value="submit" name="submit">
+    </form>
+
             </div>
           </div>
         </div>
