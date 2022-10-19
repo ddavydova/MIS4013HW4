@@ -131,11 +131,7 @@ $conn->close();
             </div>
             <div class="modal-body">
               <form method="post" action="">
-                <div class="mb-3">
-                  <label for="pname" class="form-label">Product</label>
-                  <input type="text" class="form-control" id="pname" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the product's name.</div>
-                </div>
+  
                <div class="mb-3">
                   <label for="pname" class="form-label">Supplier ID</label>
                   <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iID">
