@@ -135,9 +135,12 @@ $conn->close();
                   <input type="text" class="form-control" id="pname" aria-describedby="nameHelp" name="iName">
                   <div id="nameHelp" class="form-text">Enter the product's name.</div>
                 </div>
-                <div>
-                 <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
-                 </div>
+               <div class="mb-3">
+                  <label for="pname" class="form-label">Supplier ID</label>
+                  <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iID">
+                  <select class="form-select" aria-label="Select instructor" id="instructorList" name="iID">
+                  <div id="nameHelp" class="form-text">Enter the supplier's id.</div>
+                </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
