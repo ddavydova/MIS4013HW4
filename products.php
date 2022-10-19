@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Add':
       $sqlAdd = "insert into Product (pname) value (?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("s", $_POST['iID']);
+      $stmtAdd->bind_param("s", $_POST['iName']);
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New product name added.</div>';
       break;
@@ -134,8 +134,8 @@ $conn->close();
   
                <div class="mb-3">
                   <label for="pname" class="form-label">Supplier ID</label>
-                  <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iID">
-                  <select class="form-select" aria-label="Select supplier" id="pname" name="iID">
+                  <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iName">
+                  <select class="form-select" aria-label="Select supplier" id="pname" name="iName">
                    <?php
     $supplierSql = "select * from Supplier order by sname";
     $supplierResult = $conn->query($supplierSql);
