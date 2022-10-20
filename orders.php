@@ -120,7 +120,7 @@ $conn->close();
         $selText = " selected";
       } else {
         $selText = "";
-      }
+      }}
 ?>
           
         </tbody>
