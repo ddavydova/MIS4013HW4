@@ -42,38 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo '<div class="alert alert-success" role="alert">Order deleted.</div>';
       break;
   }
- 
- $sql = "SELECT * FROM `Customer` c join 'Orders' o on c.customer_id=o.customer_id  join 'Product' p o.product_id=p.product_id ";
-    $all_categories = new mysqli_query($con,$sql);
-  
-    // The following code checks if the submit button is clicked
-    // and inserts the data in the database accordingly
-    if(isset($_POST['submit']))
-    {
-        // Store the Product name in a "name" variable
-        $name = mysqli_real_escape_string($con,$_POST['fname']);
-        
-        // Store the Category ID in a "id" variable
-        $id = mysqli_real_escape_string($con,$_POST['customer_id']);
-      
-        $quantity = mysqli_real_escape_string($con,$_POST['quantity']);
-        $pid = mysqli_real_escape_string($con,$_POST['product_id']);
-        
-        // Creating an insert query using SQL syntax and
-        // storing it in a variable.
-        $sql_insert =
-        "INSERT INTO `orders`(`customer_id`, `product_id`, 'quantity', )
-            VALUES ('$name','$id', '$quantity', '$pid')";
-          
-          // The following code attempts to execute the SQL query
-          // if the query executes with no errors
-          // a javascript alert message is displayed
-          // which says the data is inserted successfully
-          if(mysqli_query($con,$sql_insert))
-        {
-            echo '<script>alert("Order added successfully")</script>';
-        }
-    }
+
 }
      ?>
     
@@ -142,6 +111,17 @@ if ($result->num_rows > 0) {
 }
 $conn->close();
 ?>
+
+<?php
+    $instructorSql = "select * from Customer order by fname";
+    $instructorResult = $conn->query($instructorSql);
+    while($instructorRow = $instructorResult->fetch_assoc()) {
+      if ($instructorRow['instructor_id'] == $row['instructor_id']) {
+        $selText = " selected";
+      } else {
+        $selText = "";
+      }
+?>
           
         </tbody>
       </table>
@@ -164,27 +144,6 @@ $conn->close();
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
               </div>
               <input type="hidden" name="saveType" value="Add">
-              <select name="Category">
-                           <?php
-                // use a while loop to fetch data
-                // from the $all_categories variable
-                // and individually display as an option
-                while ($category = mysqli_fetch_array(
-                        $all_categories,MYSQLI_ASSOC)):;
-            ?>
-                <option value="<?php echo $category["customer_id"];
-                    // The value we usually set is the primary key
-                ?>">
-                    <?php echo $category["fname"];
-                        // To show the category name to the user
-                    ?>
-                </option>
-            
-            <?php
-                endwhile;
-                // While loop must be terminated
-            ?>
-             </select>
              <br>
                  <button type="submit" class="btn btn-primary">Submit</button>
             </div>
