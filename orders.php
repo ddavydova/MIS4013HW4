@@ -142,10 +142,10 @@ $conn->close();
                 </option>
             <?php
                 endwhile;
-                // While loop must be terminated
             ?>
         </select>
         <br>
+            </div>
             <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
     </form>
