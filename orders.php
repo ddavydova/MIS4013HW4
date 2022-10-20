@@ -113,34 +113,34 @@ $conn->close();
         </tbody>
       </table>
       <br />
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOrders">
-        Add New
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="addOrders" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOrdersLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addOrdersLabel">Add Order</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-             <form method="post" action="">
-                <div class="mb-3">
-                  <label for="ordersname" class="form-label">Order</label>
-                  <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
-                </div>
-                <input type="hidden" name="saveType" value="Add">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+     
+     
+     
+     <form method="POST">
+        <label>Enter the order's quantity:</label>
+        <input type="text" name="iNsme" required><br>
+        <label>Select a Customer</label>
+        <select name="Category">
+            <?php
+                while ($category = mysqli_fetch_array(
+                        $all_categories,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $category["customer_id"];
+                ?>">
+                    <?php echo $category["fname"];
+                    ?>
+                </option>
+            <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
+        </select>
+        <br>
+        <input type="submit" value="submit" name="submit">
+    </form>
+    <br>
+     
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <?php include("footer.php");?>
   </body>
