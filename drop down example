@@ -67,3 +67,33 @@ line 134
                    <?php
                    }
                    ?>
+                   
+______
+ <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOrders">
+        Add New
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="addOrders" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOrdersLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addOrdersLabel">Add Order</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+             <form method="post" action="">
+                <div class="mb-3">
+                  <label for="ordersname" class="form-label">Order</label>
+                  <input type="text" class="form-control" id="ordersname" aria-describedby="nameHelp" name="iName">
+                  <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
+                </div>
+                <input type="hidden" name="saveType" value="Add">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
