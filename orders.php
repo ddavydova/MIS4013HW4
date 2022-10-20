@@ -127,7 +127,7 @@ $conn->close();
             <div class="modal-body">
              <form method="POST">
               <div class="mb-3">
-               <label for="ordersname" class="form-label">elect a Customer</label>
+               <label for="ordersname" class="form-label">Select a Customer</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
                <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
               </div>
@@ -136,8 +136,9 @@ $conn->close();
                
              </select>
              <br>
+                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+             
            </form>
            </div>
          </div>
