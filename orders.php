@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
 }
+     }
      ?>
     
       <table class="table table-striped">
