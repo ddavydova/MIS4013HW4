@@ -114,12 +114,22 @@ $conn->close();
       </table>
       <br />
      
-     
-     
-     <form method="POST">
-        <label>Enter the order's quantity:</label>
-        <input type="text" name="iNsme" required><br>
-        <label>Select a Customer</label>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addOrders">
+        Add New
+      </button>
+      <div class="modal fade" id="addOrders" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addOrdersLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addOrdersLabel">Enter the order's quantity:</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+            <div class="modal-body">
+          <form method="POST">
+           <div class="mb-3">
+         <label for="ordersname" class="form-label">elect a Customer</label>
+             <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
+            <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
         <select name="Category">
             <?php
                 while ($category = mysqli_fetch_array(
@@ -136,7 +146,8 @@ $conn->close();
             ?>
         </select>
         <br>
-        <input type="submit" value="submit" name="submit">
+            <input type="hidden" name="saveType" value="Add">
+                <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     <br>
      
