@@ -127,9 +127,8 @@ $conn->close();
             <div class="modal-body">
              <form method="POST">
               <div class="mb-3">
-               <label for="ordersname" class="form-label">Select a Customer</label>
+               <label for="ordersname" class="form-label">Enter the Quantity and pick the Customer</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
-               <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
               </div>
               <input type="hidden" name="saveType" value="Add">
               <select name="Category">
@@ -138,9 +137,7 @@ $conn->close();
              <br>
                  <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-             
            </form>
-           </div>
          </div>
        </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
