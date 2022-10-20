@@ -135,20 +135,6 @@ $conn->close();
               </div>
                <div class="mb-3">
               <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
-              <?php
-              $instructorSql = "select * from instructor order by instructor_name";
-              $instructorResult = $conn->query($instructorSql);
-              while($instructorRow = $instructorResult->fetch_assoc()) {
-              if ($instructorRow['instructor_id'] == $row['instructor_id']) {
-              $selText = " selected";
-              } else {
-              $selText = "";
-              }
-              ?>
-              <option value="<?=$instructorRow['instructor_id']?>"<?=$selText?>><?=$instructorRow['instructor_name']?></option>
-              <?php
-              }
-              ?>
               </select>
                   </div>
                  <input type="hidden" name="saveType" value="Add">
