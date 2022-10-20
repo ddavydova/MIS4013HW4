@@ -46,3 +46,24 @@ line 134
                 
                 
  <input type="text" class="form-control" id="sname" aria-describedby="nameHelp" name="iName"> 
+ 
+ 
+ ______
+ 
+ <label for="pname" class="form-label">Supplier ID</label>
+                 
+                  <select class="form-select" aria-label="Select supplier" id="pname" name="iName">
+                   <?php
+                   $supplierSql = "select * from Supplier order by sname";
+                   $supplierResult = $conn->query($supplierSql);
+                   while($supplierRow = $supplierResult->fetch_assoc()) {
+                     if ($supplierRow['supplier_id'] == $row['supplier_id']) {
+                       $selText = " selected";
+                     } else {
+                       $selText = "";
+                      }
+                   ?>
+                   <option value="<?=$supplierRow['supplier_id']?>"<?=$selText?>><?=$supplierRow['sname']?></option>
+                   <?php
+                   }
+                   ?>
