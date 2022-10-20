@@ -42,41 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo '<div class="alert alert-success" role="alert">Order deleted.</div>';
       break;
   }
-}
-     ?>
-    
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Quantity</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          
-<?php
-$sql = "SELECT order_id, quantity from Orders";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-?>
-         
-<?php
-   $servername = "localhost";
-$username = "davyddov_davyddova";
-$password = "dasha12345!";
-$dbname = "davyddov_HW3";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-         // mysqli_connect("servername","username","password","database_name")
-  
-    // Get all the categories from category table
-    $sql = "SELECT * FROM `Customer` c join 'Orders' o on c.customer_id=o.customer_id  join 'Product' p o.product_id=p.product_id ";
+ 
+ $sql = "SELECT * FROM `Customer` c join 'Orders' o on c.customer_id=o.customer_id  join 'Product' p o.product_id=p.product_id ";
     $all_categories = new mysqli_query($con,$sql);
   
     // The following code checks if the submit button is clicked
@@ -107,7 +74,29 @@ $conn = new mysqli($servername, $username, $password, $dbname);
             echo '<script>alert("Order added successfully")</script>';
         }
     }
+}
+     ?>
+    
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Quantity</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          
+<?php
+$sql = "SELECT order_id, quantity from Orders";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
 ?>
+         
           
           <tr>
             <td><?=$row["order_id"]?></td>
