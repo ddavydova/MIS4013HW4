@@ -132,7 +132,24 @@ $conn->close();
               </div>
               <input type="hidden" name="saveType" value="Add">
               <select name="Category">
-               
+                           <?php
+                // use a while loop to fetch data
+                // from the $all_categories variable
+                // and individually display as an option
+                while ($category = mysqli_fetch_array(
+                        $all_categories,MYSQLI_ASSOC)):;
+            ?>
+                <option value="<?php echo $category["Category_ID"];
+                    // The value we usually set is the primary key
+                ?>">
+                    <?php echo $category["Category_Name"];
+                        // To show the category name to the user
+                    ?>
+                </option>
+            <?php
+                endwhile;
+                // While loop must be terminated
+            ?>
              </select>
              <br>
                  <button type="submit" class="btn btn-primary">Submit</button>
