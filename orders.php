@@ -133,8 +133,23 @@ $conn->close();
                <label for="ordersname" class="form-label">Enter the Quantity and pick the Customer</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
               </div>
-              <input type="hidden" name="saveType" value="Add">
-             <br>
+              <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
+              <?php
+              $instructorSql = "select * from instructor order by instructor_name";
+              $instructorResult = $conn->query($instructorSql);
+              while($instructorRow = $instructorResult->fetch_assoc()) {
+              if ($instructorRow['instructor_id'] == $row['instructor_id']) {
+              $selText = " selected";
+              } else {
+              $selText = "";
+              }
+              ?>
+              <option value="<?=$instructorRow['instructor_id']?>"<?=$selText?>><?=$instructorRow['instructor_name']?></option>
+              <?php
+              }
+              ?>
+              </select>
+                 <input type="hidden" name="saveType" value="Add">
                  <button type="submit" class="btn btn-primary">Submit</button>
             </div>
              </div>
