@@ -133,18 +133,7 @@ $conn->close();
               </div>
               <input type="hidden" name="saveType" value="Add">
               <select name="Category">
-                <?php
-                  while ($category = mysqli_fetch_array(
-                        $all_categories,MYSQLI_ASSOC)):;
-                ?>
-                  <option value="<?php echo $category["customer_id"];
-                ?>">
-                    <?php echo $category["fname"];
-                    ?>
-                </option>
-                <?php
-                  endwhile;
-                ?>
+               
              </select>
              <br>
             </div>
