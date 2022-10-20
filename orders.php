@@ -112,16 +112,6 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-<?php
-    $instructorSql = "select * from Customer order by fname";
-    $instructorResult = $conn->query($instructorSql);
-    while($instructorRow = $instructorResult->fetch_assoc()) {
-      if ($instructorRow['instructor_id'] == $row['instructor_id']) {
-        $selText = " selected";
-      } else {
-        $selText = "";
-      }}
-?>
           
         </tbody>
       </table>
