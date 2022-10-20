@@ -133,6 +133,7 @@ $conn->close();
                <label for="ordersname" class="form-label">Enter the Quantity and pick the Customer</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
               </div>
+               <div class="mb-3">
               <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid">
               <?php
               $instructorSql = "select * from instructor order by instructor_name";
@@ -149,6 +150,7 @@ $conn->close();
               }
               ?>
               </select>
+                  </div>
                  <input type="hidden" name="saveType" value="Add">
                  <button type="submit" class="btn btn-primary">Submit</button>
             </div>
