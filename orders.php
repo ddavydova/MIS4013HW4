@@ -69,8 +69,8 @@ if ($result->num_rows > 0) {
          // mysqli_connect("servername","username","password","database_name")
   
     // Get all the categories from category table
-    $sql = "SELECT * FROM `Customer`";
-    $all_categories = mysqli_query($con,$sql);
+    $sql = "SELECT * FROM `Customer` c join 'Orders' o on c.customer_id=o.customer_id  join 'Product' p o.product_id=p.product_id ";
+    $all_categories = new mysqli_query($con,$sql);
   
     // The following code checks if the submit button is clicked
     // and inserts the data in the database accordingly
