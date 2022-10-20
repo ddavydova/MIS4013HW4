@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
 }
-     }
      ?>
     
       <table class="table table-striped">
@@ -123,6 +122,9 @@ $conn->close();
         $selText = "";
       }
 ?>
+         <option value="<?=$instructorRow['instructor_id']?>"<?=$selText?>><?=$instructorRow['instructor_name']?></option>
+<?php
+    }
           
         </tbody>
       </table>
