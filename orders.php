@@ -121,34 +121,39 @@ $conn->close();
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addOrdersLabel">Enter the order's quantity:</h1>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                 </div>
+              <h1 class="modal-title fs-5" id="addOrdersLabel">Enter the order's quantity:</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <div class="modal-body">
-          <form method="POST">
-           <div class="mb-3">
-         <label for="ordersname" class="form-label">elect a Customer</label>
-             <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
-            <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
-        <select name="Category">
-            <?php
-                while ($category = mysqli_fetch_array(
+             <form method="POST">
+              <div class="mb-3">
+               <label for="ordersname" class="form-label">elect a Customer</label>
+               <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
+               <div id="nameHelp" class="form-text">Enter the order's quantity.</div>
+              </div>
+              <input type="hidden" name="saveType" value="Add">
+              <select name="Category">
+                <?php
+                  while ($category = mysqli_fetch_array(
                         $all_categories,MYSQLI_ASSOC)):;
-            ?>
-                <option value="<?php echo $category["customer_id"];
+                ?>
+                  <option value="<?php echo $category["customer_id"];
                 ?>">
                     <?php echo $category["fname"];
                     ?>
                 </option>
-            <?php
-                endwhile;
-            ?>
-        </select>
-        <br>
+                <?php
+                  endwhile;
+                ?>
+             </select>
+             <br>
             </div>
-            <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+           </form>
+           </div>
+         </div>
+       </div>
+           
     <br>
      
    
