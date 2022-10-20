@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <form method="post" action="">
+                      <form method="post" action="order-edit.php">
                         <div class="mb-3">
                           <label for="editOrders<?=$row["order_id"]?>Name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="editOrders<?=$row["order_id"]?>Name" aria-describedby="editOrders<?=$row["order_id"]?>Help" name="iName" value="<?=$row['quantity']?>">
