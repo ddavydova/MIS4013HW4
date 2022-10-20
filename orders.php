@@ -131,12 +131,17 @@ $conn->close();
              <form method="POST">
               <div class="mb-3">
                <label for="ordersname" class="form-label">Enter the Quantity</label>
-               <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
+               <input type="text" class="form-control"  aria-describedby="nameHelp" name="iName" required><br>
               </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
-                 <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid"></select>
+                 <select class="form-select" aria-label="Select customer" id="customerList" name="iid"></select>
                   </div>
+               <div class="mb-3">
+                 <label for="ordersname" class="form-label">Pick the Product</label>
+                 <select class="form-select" aria-label="Select product" id="productList" name="iid"></select>
+                  </div>
+              
                  <input type="hidden" name="saveType" value="Add">
                  <button type="submit" class="btn btn-primary">Submit</button>
             </div>
