@@ -136,6 +136,7 @@ $conn->close();
                   <input type="text" class="form-control" id="pname" aria-describedby="nameHelp" name="iName">
                   <div id="nameHelp" class="form-text">Enter the product's name.</div>
                 </div>
+                <div class="mb-3">
                 <label for="ordersname" class="form-label">Enter the Quantity</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iNsme" required><br>
               </div>
