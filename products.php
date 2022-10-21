@@ -148,6 +148,7 @@ $conn->close();
         $selText = "";
       }
 ?>
+                    <option value="<?=$supplierRow['supplier_id']?>"<?=$selText?>><?=$supplierRow['sname']?></option>
                 <?php
     }
 ?></select>
