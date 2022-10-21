@@ -147,6 +147,9 @@ $conn->close();
       } else {
         $selText = "";
       }
+?>
+                <?php
+    }
 ?></select>
                   </div>
                 <input type="hidden" name="saveType" value="Add">
