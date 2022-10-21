@@ -136,21 +136,21 @@ $conn->close();
                   <input type="text" class="form-control" id="pname" aria-describedby="nameHelp" name="iName">
                 </div>
                <div class="mb-3">
-                 <label for="ordersname" class="form-label">Pick the Supplier</label>
-                 <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid"> 
-                <?php
-    $supplierSql = "select * from Supplier order by sname";
-    $supplierResult = $conn->query($supplierSql);
-    while($supplierRow = $supplierResult->fetch_assoc()) {
-      if ($supplierRow['supplier_id'] == $row['supplier_id']) {
-        $selText = " selected";
-      } else {
-        $selText = "";
-      }
-?>
+                 <label for="sname" class="form-label">Pick the Supplier</label>
+                 <select class="form-select" aria-label="Select Supplier" id="sname" name="iid"> 
+                 <?php
+                 $supplierSql = "select * from Supplier order by sname";
+                 $supplierResult = $conn->query($supplierSql);
+                 while($supplierRow = $supplierResult->fetch_assoc()) {
+                 if ($supplierRow['supplier_id'] == $row['supplier_id']) {
+                 $selText = " selected";
+                 } else {
+                 $selText = "";
+                 }
+                 ?>
                     <option value="<?=$supplierRow['supplier_id']?>"<?=$selText?>><?=$supplierRow['sname']?></option>
-</select>
-                  </div>
+                </select>
+               </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
