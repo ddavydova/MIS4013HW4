@@ -149,9 +149,7 @@ $conn->close();
       }
 ?>
                     <option value="<?=$supplierRow['supplier_id']?>"<?=$selText?>><?=$supplierRow['sname']?></option>
-                <?php
-    }
-?></select>
+</select>
                   </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
