@@ -137,7 +137,17 @@ $conn->close();
                 </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Supplier</label>
-                 <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid"></select>
+                 <select class="form-select" aria-label="Select instructor" id="instructorList" name="iid"> 
+                <?php
+    $supplierSql = "select * from Supplier order by sname";
+    $supplierResult = $conn->query($supplierSql);
+    while($supplierRow = $supplierResult->fetch_assoc()) {
+      if ($supplierRow['supplier_id'] == $row['supplier_id']) {
+        $selText = " selected";
+      } else {
+        $selText = "";
+      }
+?></select>
                   </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
