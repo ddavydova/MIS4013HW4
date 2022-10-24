@@ -139,7 +139,17 @@ $conn->close();
               </div>
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
-                 <select class="form-select" aria-label="Select product" id="productList" name="iid"></select>
+                 <select class="form-select" aria-label="Select product" id="productList" name="iid">
+               <?php
+    $instructorSql = "select * from Product order by pname";
+    $instructorResult = $conn->query($instructorSql);
+    while($instructorRow = $instructorResult->fetch_assoc()) {
+      if ($instructorRow['product_id'] == $row['product_id']) {
+        $selText = " selected";
+      } else {
+        $selText = "";
+      }
+?></select>
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
