@@ -139,8 +139,8 @@ $conn->close();
               </div>
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
-                 <select class="form-select" aria-label="Select product" id="productList" name="iid">
-               <?php
+                <select class="form-select" aria-label="Select Product" id="ordersname" name="iid">
+<?php
     $instructorSql = "select * from Product order by pname";
     $instructorResult = $conn->query($instructorSql);
     while($instructorRow = $instructorResult->fetch_assoc()) {
@@ -149,10 +149,12 @@ $conn->close();
       } else {
         $selText = "";
       }
-   <option value="<?=$instructorRow['product_id']?>"<?=$selText?>><?=$instructorRow['pname']?></option>
+?>
+  <option value="<?=$instructorRow['product_id']?>"<?=$selText?>><?=$instructorRow['pname']?></option>
 <?php
     }
-?></select>
+?>
+</select>
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
