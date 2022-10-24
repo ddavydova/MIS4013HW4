@@ -132,29 +132,14 @@ $conn->close();
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-             <form method="post" action="">
+             <form method="post" action="order-edit.php">
               <div class="mb-3">
                <label for="ordersname" class="form-label">Enter the Quantity</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iName" required><br>
               </div>
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
-                <select class="form-select" aria-label="Select Product" id="ordersname" name="iid">
-<?php
-    $instructorSql = "select * from Product order by pname";
-    $instructorResult = $conn->query($instructorSql);
-    while($instructorRow = $instructorResult->fetch_assoc()) {
-      if ($instructorRow['product_id'] == $row['product_id']) {
-        $selText = " selected";
-      } else {
-        $selText = "";
-      }
-?>
-  <option value="<?=$instructorRow['product_id']?>"<?=$selText?>><?=$instructorRow['pname']?></option>
-<?php
-    }
-?>
-</select>
+                <select class="form-select" aria-label="Select Product" id="ordersname" name="iid"></select>
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
