@@ -140,6 +140,16 @@ $conn->close();
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
                  <select class="form-select" aria-label="Select product" id="productList" name="iid"></select>
+ if($r_set = $connection->query("SELECT * from Product")){
+
+echo "<select id=pname name=pname class='form-control' style='width:100px;'>";
+while ($row = $r_set->fetch_assoc()) {
+echo "<option value=$row[product_id]>$row[pname]</option>";
+}
+echo "</select>";
+}else{
+echo $connection->error;
+}
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
