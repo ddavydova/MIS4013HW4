@@ -131,7 +131,7 @@ if ($result->num_rows > 0) {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-             <form method="post" action="order-edit.php">
+             <form method="post" action="">
               <div class="mb-3">
                <label for="ordersname" class="form-label">Enter the Quantity</label>
                <input type="text" class="form-control"  aria-describedby="nameHelp" name="iName" required><br>
