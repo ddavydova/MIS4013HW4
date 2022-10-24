@@ -138,7 +138,6 @@ $conn->close();
                <div class="mb-3">
                  <label for="sname" class="form-label">Pick the Supplier</label>
                  <select class="form-select" aria-label="Select Supplier" id="sname" name="iid"> 
-                    <option value="<?=$supplierRow['supplier_id']?>"<?=$selText?>><?=$supplierRow['sname']?></option>
                 </select>
                </div>
                 <input type="hidden" name="saveType" value="Add">
