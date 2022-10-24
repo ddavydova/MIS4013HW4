@@ -139,11 +139,35 @@ $conn->close();
               </div>
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
-                <select class="form-select" aria-label="Select Product" id="ordersname" name="iid"></select>
+                <select class="form-select" aria-label="Select Product" id="ordersname" name="iid">
+                   <?php
+                    $instructorSql = "select * from Supplier order by sname";
+                    $instructorResult = $conn->query($instructorSql);
+                    while($instructorRow = $instructorResult->fetch_assoc()) {
+     
+                   ?>
+                    <option value="<?=$instructorRow['supplier_id']?>"><?=$instructorRow['sname']?></option>
+                  <?php
+                     }
+                  $conn->close();
+                  ?>
+                 </select>
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
-                 <select class="form-select" aria-label="Select customer" id="customerList" name="iid"></select>
+                 <select class="form-select" aria-label="Select Customer" id="customerList" name="iid">
+                    <?php
+                      $instructorSql = "select * from Customer order by fname";
+                      $instructorResult = $conn->query($instructorSql);
+                      while($instructorRow = $instructorResult->fetch_assoc()) {
+     
+                   ?>
+                      <option value="<?=$instructorRow['customer_id']?>"><?=$instructorRow['fname']?></option>
+                    <?php
+                   }
+                  $conn->close();
+                   ?>
+                </select>
                 </div>
                  <input type="hidden" name="saveType" value="Add">
                  <button type="submit" class="btn btn-primary">Submit</button>
