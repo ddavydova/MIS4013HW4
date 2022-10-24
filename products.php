@@ -110,7 +110,7 @@ if ($result->num_rows > 0) {
 } else {
   echo "0 results";
 }
-$conn->close();
+
 ?>
           
         </tbody>
@@ -147,6 +147,7 @@ $conn->close();
   <option value="<?=$instructorRow['supplier_id']?>"><?=$instructorRow['sname']?></option>
 <?php
     }
+                  $conn->close();
 ?>
 </select>
                </div>
@@ -158,7 +159,7 @@ $conn->close();
           </div>
           </div>
      </div>
- 
+
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <?php include("footer.php");?>
