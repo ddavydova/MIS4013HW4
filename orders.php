@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Add':
       $sqlAdd = "insert into Orders (quantity, product_id, customer_id) value (?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("s", $_POST['iName'],$_POST['ordersname'],$_POST['cname']);
+      $stmtAdd->bind_param("sii", $_POST['iName'],$_POST['ordersname'],$_POST['cname']);
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New quantity added.</div>';
       break;
