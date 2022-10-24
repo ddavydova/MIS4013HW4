@@ -150,7 +150,6 @@ $conn->close();
                 <?  
                 }  
                 ?>  
-            </select>  
             <input type="submit" name="Submit" value="Select" /> 
                </div>
                <div class="mb-3">
