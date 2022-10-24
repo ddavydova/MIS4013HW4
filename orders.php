@@ -149,6 +149,9 @@ $conn->close();
       } else {
         $selText = "";
       }
+   <option value="<?=$instructorRow['product_id']?>"<?=$selText?>><?=$instructorRow['pname']?></option>
+<?php
+    }
 ?></select>
                </div>
                <div class="mb-3">
