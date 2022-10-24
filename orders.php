@@ -114,7 +114,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 ?>
 
-          <?php include("links.php");?>
+          <?php include("order-edit.php");?>
           
         </tbody>
       </table>
