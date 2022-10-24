@@ -140,7 +140,6 @@ $conn->close();
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
                  <select class="form-select" aria-label="Select product" id="productList" name="iid"></select>
-            <input type="submit" name="Submit" value="Select" /> 
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
