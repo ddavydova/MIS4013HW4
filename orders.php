@@ -148,7 +148,6 @@ if ($result->num_rows > 0) {
                     <option value="<?=$instructorRow['supplier_id']?>"><?=$instructorRow['sname']?></option>
                   <?php
                      }
-                  $conn->close();
                   ?>
                  </select>
                </div>
