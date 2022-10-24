@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $stmtAdd = $conn->prepare($sqlAdd);
       $stmtAdd->bind_param("s", $_POST['iName']);
       $stmtAdd->execute();
+    $result = $stmt->get_result();
       echo '<div class="alert alert-success" role="alert">New product name added.</div>';
       break;
     case 'Edit':
