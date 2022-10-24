@@ -146,7 +146,7 @@ $conn->close();
                  $selText = " selected";
                  } else {
                  $selText = "";
-                 }
+                 }}
                  ?>
                     <option value="<?=$supplierRow['supplier_id']?>"<?=$selText?>><?=$supplierRow['sname']?></option>
                 </select>
