@@ -137,7 +137,7 @@ if ($result->num_rows > 0) {
               </div>
               <div class="mb-3">
                  <label for="sname" class="form-label">Pick the Supplier</label>
-                 <select class="form-select" aria-label="Select product" id="sname" name="iid">
+                 <select class="form-select" aria-label="Select product" id="sname" name="sname">
                <?php
     $instructorSql = "select * from Supplier order by sname";
     $instructorResult = $conn->query($instructorSql);
