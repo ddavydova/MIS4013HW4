@@ -21,9 +21,9 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
-      $sqlAdd = "insert into Orders (quantity) value (?)";
+      $sqlAdd = "insert into Orders (quantity, product_id, customer_id) value (?, ?, ?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("s", $_POST['iName']);
+      $stmtAdd->bind_param("s", $_POST['iName'],$_POST['ordersname'],$_POST['cname']);
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New quantity added.</div>';
       break;
@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
               </div>
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
-                <select class="form-select" aria-label="Select Product" id="ordersname" name="iid">
+                <select class="form-select" aria-label="Select Product" id="ordersname" name="ordersname">
                    <?php
                     $instructorSql = "select * from Supplier order by sname";
                     $instructorResult = $conn->query($instructorSql);
@@ -152,8 +152,8 @@ if ($result->num_rows > 0) {
                  </select>
                </div>
                <div class="mb-3">
-                 <label for="ordersname" class="form-label">Pick the Customer</label>
-                 <select class="form-select" aria-label="Select Customer" id="customerList" name="iid">
+                 <label for="cname" class="form-label">Pick the Customer</label>
+                 <select class="form-select" aria-label="Select Customer" id="cname" name="cname">
                     <?php
                       $instructorSql = "select * from Customer order by fname";
                       $instructorResult = $conn->query($instructorSql);
