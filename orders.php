@@ -140,17 +140,18 @@ $conn->close();
               <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Product</label>
                  <select class="form-select" aria-label="Select product" id="productList" name="iid"></select>
-               require "config.php"
- if($r_set = $connection->query("SELECT * from Product")){
-
-echo "<select id=pname name=pname class='form-control' style='width:100px;'>"
-while ($row = $r_set->fetch_assoc()) {
-echo "<option value=$row[product_id]>$row[pname]</option>"
-}
-echo "</select>";
-}else{
-echo $connection->error;
-}
+ <?  
+                $list=mysql_query("select * from Orders order by order_id asc");  
+            while($row_list=mysql_fetch_assoc($list)){  
+                ?>  
+                    <option value="<? echo $row_list['order_id']; ?>"<? if($row_list['order_id']==$select){ echo "selected"; } ?>>  
+                                         <?echo $row_list['quantity'];?>  
+                    </option>  
+                <?  
+                }  
+                ?>  
+            </select>  
+            <input type="submit" name="Submit" value="Select" /> 
                </div>
                <div class="mb-3">
                  <label for="ordersname" class="form-label">Pick the Customer</label>
